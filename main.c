@@ -9,6 +9,7 @@ extern char *ft_strcpy(char *dest, const char *src);
 extern int ft_strcmp(const char *s1, const char *s2);
 extern ssize_t ft_write(int fildes, const void *buf, size_t nbyte);
 extern ssize_t ft_read(int fildes, void *buf, size_t nbyte);
+char *ft_strdup(const char *s);
 
 int main() {
     const char *test = "Hello, world!";
@@ -123,7 +124,14 @@ int main() {
     printf("\033[34mFT_READ:|%zd|\nORIGINAL:|%zd|\n", resu1, resu2);
 
     //TEST1
-    
-
+    printf("TEST\n");
+    char *str1 = ft_strdup("gemartin");
+    printf("TEST2\n");
+    char *str2 = strdup("gemartin");
+    if (strcmp(str1, str2) == 0)
+        printf("\033[32mSTRDUP 1. OK\n");
+    else
+        printf("\033[31mSTRDUP 2. KO\n");
+    printf("\033[34mFT_STRDUP:|%s|\nORIGINAL:|%s|\n", str1, str2);
     return 0;
 }

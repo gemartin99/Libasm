@@ -1,34 +1,23 @@
 section .text
 global ft_strdup
-global ft_strlen
 extern malloc
-
-ft_strlen:
-    xor rcx, rcx
+extern ft_strlen
+extern ft_strcpy
 
 ft_strdup:
     xor rax, rax
     xor rcx, rcx
 
+    push rdi
     call ft_strlen
-    mov rsi, rax
-    inc rsi; aumentamos porque hay que tener en cuenta el nulo
+    inc rax; incremento para tener en cuenta el nulo para reservar con malloc
+    mov rdi, rax
     call malloc
     test rax, rax; esto comprueba si malloc da nulo
     jz .error; si es nulo tirams error
-    mov rbx, rax
-    mov rcx, 0
-
-.copy_loop:
-    mov al, [rdi + rcx]
-    mov [rbx + rcx], al
-    cmp al, 0
-    je .copy_done
-    inc rcx
-    jmp .copy_loop
-
-.copy_done:
-    mov rax, rbx
+    pop rsi
+    mov rdi, rax
+    call ft_strcpy
     ret
 
 .error:

@@ -4,7 +4,7 @@ ASM = nasm
 ASMFLAGS = -f elf64
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -no-pie
 
 SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 

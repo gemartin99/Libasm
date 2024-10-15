@@ -20,6 +20,6 @@ ft_strcmp:
     inc rsi
     jmp .loop
 
-.done
+.done:
     xor rax, rax
     ret
